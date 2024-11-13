@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merkys Hub</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: sans-serif;
+            background-color: #1a1a1a;
+            color: #e6e6e6;
+        }
+
+        /* Title styling */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            padding: 20px;
+            color: #e6e6e6;
+        }
+
+        /* Sidebar overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            z-index: 10;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: #e6e6e6;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 20;
+            padding-top: 20px;
+        }
+
+        /* Sidebar button styling */
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e6e6e6;
+            background-color: #333;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar button:hover {
+            background-color: #4b0082;
+        }
+
+        /* Button for opening sidebar */
+        .open-sidebar-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 800;
+            background-color: #4b0082;
+            color: #e6e6e6;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Small text styling */
+        .small-text {
+            font-weight: normal;
+            font-size: 0.9rem;
+        }
+
+        /* Active sidebar and overlay */
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Merkys Hub</h1>
+    <button class="open-sidebar-btn" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Menu -->
+    <div class="overlay" onclick="toggleSidebar()"></div>
+    <div class="sidebar">
+        <button onclick="alert('Button 1 clicked!')">Button 1</button>
+        <button onclick="alert('Button 2 clicked!')">Button 2</button>
+        <button onclick="alert('Button 3 clicked!')">Button 3</button>
+        <button onclick="alert('Button 4 clicked!')">Button 4</button>
+        <p class="small-text">Some additional info here.</p>
+    </div>
+
+    <script>
+        // Function to toggle the sidebar and overlay
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            document.querySelector('.overlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
